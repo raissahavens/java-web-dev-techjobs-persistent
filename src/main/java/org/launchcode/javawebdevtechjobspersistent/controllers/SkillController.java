@@ -20,8 +20,8 @@ public class SkillController {
 
     @GetMapping
     public String displayAllSkills(Model model) {
-        model.addAttribute("title", "All Employers");
-        model.addAttribute("employers", skillRepository.findAll());
+        model.addAttribute("title", "All Skills");
+        model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
 
@@ -44,7 +44,7 @@ public class SkillController {
     }
 
     @GetMapping("view/{skillId}")
-    public String displayViewSkill(Model model, @PathVariable String skillId) {
+    public String displayViewSkill(Model model, @PathVariable int skillId) {
 
         Optional results = skillRepository.findById(skillId);
         if (results.isPresent()) {
