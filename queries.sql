@@ -17,4 +17,5 @@ DROP TABLE job;
 ## Part 4: Test it with SQL
 
 -- query to return a list of the names and descriptions of all skills that are attached to jobs in alphabetical order
-SELECT name, description FROM skill INNER JOIN job ON skill.id = job.id ORDER BY name ASC;
+SELECT name, description FROM skill LEFT JOIN job_skills ON skills_id = job_skills.skills_id
+WHERE job_skills.jobs_id is not null ORDER BY name ASC;
